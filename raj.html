@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio Development Journey</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f8f9fa;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .formal-container {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+        }
+
+        .journey-description {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .day-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .day-link {
+            display: flex;
+            align-items: center;
+            background: white;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 18px 25px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-color: #3498db;
+        }
+
+        .day-link i {
+            font-size: 20px;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            color: #3498db;
+            min-width: 25px;
+            text-align: center;
+        }
+
+        .day-link:hover i {
+            transform: scale(1.1);
+        }
+
+        .day-link .day-info {
+            flex-grow: 1;
+        }
+
+        .day-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .day-desc {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Different accent colors for each day link */
+        .day-link:nth-child(1) { border-left: 4px solid #3498db; }
+        .day-link:nth-child(2) { border-left: 4px solid #2ecc71; }
+        .day-link:nth-child(3) { border-left: 4px solid #e74c3c; }
+        .day-link:nth-child(4) { border-left: 4px solid #f39c12; }
+        .day-link:nth-child(5) { border-left: 4px solid #9b59b6; }
+
+        .day-link:nth-child(1):hover { border-color: #3498db; }
+        .day-link:nth-child(2):hover { border-color: #2ecc71; }
+        .day-link:nth-child(3):hover { border-color: #e74c3c; }
+        .day-link:nth-child(4):hover { border-color: #f39c12; }
+        .day-link:nth-child(5):hover { border-color: #9b59b6; }
+
+        .day-link:nth-child(1) i { color: #3498db; }
+        .day-link:nth-child(2) i { color: #2ecc71; }
+        .day-link:nth-child(3) i { color: #e74c3c; }
+        .day-link:nth-child(4) i { color: #f39c12; }
+        .day-link:nth-child(5) i { color: #9b59b6; }
+
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 26px;
+            }
+            
+            .formal-container {
+                padding: 30px 20px;
+            }
+            
+            .day-link {
+                padding: 15px 20px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .day-link i {
+                margin-right: 0;
+                margin-bottom: 10px;
+                font-size: 18px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .day-link {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .day-link:nth-child(1) { animation-delay: 0.1s; }
+        .day-link:nth-child(2) { animation-delay: 0.2s; }
+        .day-link:nth-child(3) { animation-delay: 0.3s; }
+        .day-link:nth-child(4) { animation-delay: 0.4s; }
+        .day-link:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+    <div class="formal-container">
+        <h2>My Coding Journey</h2>
+        
+        <p class="journey-description">
+            A structured progression through fundamental web development concepts, 
+            from basic markup to full projects.
+        </p>
+        
+        <div class="day-links">
+            <a href="https://parip-7t9x-git-main-paris-projects-265cee9a.vercel.app/" class="day-link">
+                <i class="fas fa-code"></i>
+                <div class="day-info">
+                    <div class="day-title">Day 1 - HTML/CSS Fundamentals</div>
+                    <div class="day-desc">Learn core markup and styling principles</div>
+                </div>
+            </a>
+            
+            <a href="https://parip-git-main-paris-projects-265cee9a.vercel.app/" class="day-link">
+                <i class="fas fa-laptop-code"></i>
+                <div class="day-info">
+                    <div class="day-title">Day 2 - JavaScript Basics</div>
+                    <div class="day-desc">Introduction to programming fundamentals</div>
+                </div>
+            </a>
+            
+            <a href="https://pari12-git-main-paris-projects-265cee9a.vercel.app/" class="day-link">
+                <i class="fas fa-cogs"></i>
+                <div class="day-info">
+                    <div class="day-title">Day 3 - Framework Introduction</div>
+                    <div class="day-desc">Working with modern JavaScript frameworks</div>
+                </div>
+            </a>
+            
+            <a href="https://paripatil2314-b174-git-main-paris-projects-265cee9a.vercel.app/" class="day-link">
+                <i class="fas fa-rocket"></i>
+                <div class="day-info">
+                    <div class="day-title">Day 4 - Advanced Concepts</div>
+                    <div class="day-desc">State management and API integration</div>
+                </div>
+            </a>
+            
+            <a href="https://paripatil2314-git-main-paris-projects-265cee9a.vercel.app/" class="day-link">
+                <i class="fas fa-project-diagram"></i>
+                <div class="day-info">
+                    <div class="day-title">Day 5 - Capstone Project</div>
+                    <div class="day-desc">Complete application development</div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            © 2025 My Coding Journey | Designed for educational purposes
+        </div>
+    </div>
+</body>
+</html>
